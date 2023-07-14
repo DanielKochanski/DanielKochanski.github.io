@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{margin: 0;}
+        #emoji{
+            font-size: 100px;
+            padding: 30px;
+            text-align: center;
+        }
+        #points {
+            text-align: center;
+            font-size: 20px;
+            padding: 15px;
+        }
+        #table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            border: 1px solid darkgray;
+            background-color: grey;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+
+    <div id="emoji">🙂</div>
+    <hr>
+    <div id="points">punkty: 0</div>
+    <hr>
+    <table id="gameField"></table>
+
+    <script>
+        //ustawienia gry
+        var fieldsCount = 100;
+        var minesCount = 10;
+
+        //zmienne globalne
+        var counter = 1;
+        var mines = new Array();
+        var inGame = true;
+        var clickedField = null;
+        var points = 0;
+
+        //pobieranei pól
+        var emojiField = document.getElementById("emoji");
+        var pointsField = document.getElementById("points");
+
+        //generowanie pola gry
+        var tableContent = "";
+        for(i=0;i<Math.sqrt(fieldsCount);i++){
+            tableContent += "<tr>";
+                for(j=0;j<Math.sqrt(fieldsCount);j++){
+            tableContent += '<td alt="' + counter + '"></td>';
+            counter++;
+            }
+        tableContent += "</tr>";
+        }
+        gameField.innerHTML = tableContent;
+
+        //generowanie tablicy min
+        while(mines.length < 10) {
+            var losowa = Math.floor(Math.random() * fieldsCount) + 1;
+            if(mines.includes(losowa)) continue;
+            mines.push(losowa);
+        }
+
+        //przypisanie detektorów zdarzen
+        var fields = document.getElementsByTagName("td");
+        for(i = 0; i < fields.length;i++){
+            fields[i].onmousedown = function(){
+                //wcisniecie klawisza na td
+                if(inGame && this.style.backgroundColor != "green"){
+                    this.style.backgroundColor = "red";
+                    emojiField.innerHTML = "😱";
+                    clickedField = this;
+                }
+            }
+            fields[i].onmouseup = function(){
+                //puszczenie klawisza na td
+                if(inGame && clickedField == this) {
+                    var fieldNumber = parseInt(this.getAttribute("alt"));
+                    if(mines.includes(fieldNumber)) {
+                        //przegrana
+                        this.innerHTML = "💣";
+                        inGame = false;
+                        emojiField.innerHTML = "💀";
+                    }else{
+                        //gramy dalej
+                        this.style.backgroundColor = "green";
+                        points++;
+                        pointsField.innerHTML = "punkty: " + points;
+                        emojiField.innerHTML = "🙂";
+
+                    }
+                    clickedField = null;
+                }
+            }
+        }
+        document.onmouseup = function() {
+            if(inGame){
+                clickedField.style.backgroundColor = "grey";
+                emojiField.innerHTML = "🙂";
+                clickedField = "null";
+            }
+        }
+
+    </script>
+</body>
+</html>

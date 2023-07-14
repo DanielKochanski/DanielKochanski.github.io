@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #sun {
+            height: 150px;
+            width: 150px;
+            background-image: url(sun.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-left: 30px;
+        }
+
+        #chmury {
+            width: 100%;
+            height: 125px;
+            position: absolute;
+            background-image: url(cloud.png);
+            background-size: contain;
+            top: 80px;
+            animation: chmury 300s infinite;
+        }
+
+        #statek {
+            width: 400px;
+            height: 400px;
+            background-image: url(boat.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            bottom: 75px;
+            z-index: 85;
+            position: absolute;
+            animation: boat 50s infinite;
+        }
+
+        .fala1 {
+            width: 100%;
+            height: 125px;
+            position: absolute;
+            background-image: url(waves.png);
+            background-size: contain;
+            bottom: 75px;
+            animation: chmury 150s infinite;
+            z-index: 100;
+        }
+
+        .fala_bottom1 {
+            width: 100%;
+            height: 75px;
+            background-color: rgb(76, 155, 193);
+            position: absolute;
+            bottom: 0px;
+            z-index: 90;
+        }
+
+        .fala2 {
+            width: 100%;
+            height: 80px;
+            position: absolute;
+            background-image: url(waves.png);
+            background-size: contain;
+            bottom: 125px;
+            animation: chmury 300s infinite;
+            z-index: 80;
+        }
+
+        .fala_bottom2 {
+            width: 100%;
+            height: 125px;
+            background-color: rgb(86, 175, 213);
+            position: absolute;
+            bottom: 0px;
+            z-index: 70;
+        }
+
+        .fala3 {
+            width: 100%;
+            height: 75px;
+            position: absolute;
+            background-image: url(waves.png);
+            background-size: contain;
+            bottom: 150px;
+            animation: chmury 500s infinite;
+            z-index: 50;
+        }
+
+        .fala_bottom3 {
+            width: 100%;
+            height: 150px;
+            background-color: rgb(76, 155, 193);
+            position: absolute;
+            bottom: 0px;
+        }
+
+        @keyframes boat {
+            0% {
+                left: 0%;
+                rotate: -15deg;
+            }
+
+            10% {
+                rotate: 15deg;
+            }
+
+            20% {
+                rotate: -15deg;
+            }
+
+            30% {
+                rotate: 15deg;
+            }
+
+            40% {
+                rotate: -15deg;
+            }
+
+            50% {
+                rotate: 15deg;
+                left: 1400px;
+            }
+
+            60% {
+                rotate: -15deg;
+            }
+
+            70% {
+                rotate: 15deg;
+            }
+
+            80% {
+                rotate: -15deg;
+            }
+
+            90% {
+                rotate: 15deg;
+            }
+
+            100% {
+                rotate: -15deg;
+                left: 0%;
+            }
+        }
+
+        @keyframes chmury {
+
+            0% {
+                background-position: 0 0, 0 0, 0 0;
+            }
+
+            100% {
+                background-position: 10000px 0, 7500px 0, 5000px 0;
+            }
+        }
+
+        @keyframes fale {
+
+            0% {
+                background-position: 0 0, 0 0, 0 0;
+            }
+
+            100% {
+                background-position: 10000px 0, 7500px 0, 5000px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sun"></div>
+    <div id="chmury"></div>
+    <div id="statek"></div>
+    <div class="fala1"></div>
+    <div class="fala_bottom1"></div>
+    <div class="fala2"></div>
+    <div class="fala_bottom2"></div>
+    <div class="fala3"></div>
+    <div class="fala_bottom3"></div>
+
+</body>
+
+</html>

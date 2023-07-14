@@ -1,0 +1,122 @@
+:root{
+    background-color: hsl(208, 52%, 94%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+@media only screen and (min-width: 375px) {
+main{
+    width: 1100px;
+    margin: 0 auto;
+    margin-top: 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    row-gap: 20px;
+    column-gap: 30px;
+    grid-template-areas:
+    "one one two five"
+    "three four four five";
+}
+}
+@media only screen and (max-width: 375px){
+main{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.box{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.box-header-long{
+    grid-template-columns: 25% 75%;
+}
+}
+.type1{
+    grid-area: one;
+    background-color: hsl(263, 55%, 52%);
+    background-image: url(images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: 84% top;
+}
+.type2{
+    grid-area: two;
+    background-color: hsl(217, 19%, 35%);
+}
+main .type3{
+    grid-area: three;
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+}
+.type4{
+    grid-area: four;
+    background-color: hsl(219, 29%, 14%);;
+}
+main .type5{
+    grid-area: five;
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+}
+.box{
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    border-radius: 8px;
+    color: white;
+    -webkit-box-shadow: 38px 58px 72px -43px rgba(66, 68, 90, 0.32);
+    -moz-box-shadow: 38px 58px 72px -43px rgba(66, 68, 90, 0.32);
+    box-shadow: 38px 58px 72px -43px rgba(66, 68, 90, 0.32);
+    transition: transform 330ms ease-in-out;
+}
+.box:hover{
+    transform: scale(1.02);
+    filter: brightness(105%);
+    transition: transform 330ms ease-in-out;
+}
+.box-header{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: "one-h two-h";
+    margin-bottom: 20px;
+}
+@media only screen and (min-width: 375px) {
+.box-header-long{
+    grid-template-columns: 10% 90%;
+}
+}
+.box-header-short{
+    grid-template-columns: 25% 75%;
+}
+.profile{
+    grid-area: one-h;
+}
+.personal-data{
+    grid-area: two-h;
+}
+h3{
+    margin-bottom: 20px;
+    opacity: 80%;
+}
+img{
+    border-radius: 100%;
+    width: 40px;
+    margin-right: 4%;
+}
+.purple-border{
+    border: 3px solid hsl(263, 45%, 62%);
+}
+.dark-purple-border{
+    border: 3px solid hsl(263, 55%, 52%);
+}
+.verifed{
+    font-size: 13px;
+    opacity: 50%;
+}
+.quote{
+    opacity: 70%;
+    font-size: 13px;
+}
